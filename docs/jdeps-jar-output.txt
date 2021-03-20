@@ -1,0 +1,4 @@
+poc-gradle-jar.jar -> java.base
+poc-gradle-jar.jar -> not found
+   com.example                                        -> java.lang                                          java.base
+   com.example                                        -> org.apache.logging.log4j                           not found
