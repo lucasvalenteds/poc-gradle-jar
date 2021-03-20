@@ -21,3 +21,10 @@ tasks.withType<Jar> {
         attributes["Main-Class"] = "com.example.Main"
     }
 }
+
+val fatJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("all")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(configurations["runtimeClasspath"].map { if (it.isDirectory) it else zipTree(it) })
+    with(tasks.getByName("jar") as CopySpec)
+}
